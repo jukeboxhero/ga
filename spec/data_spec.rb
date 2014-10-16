@@ -22,4 +22,26 @@ describe Data do
 			Data.file_to_class('data/string.txt').should eq(Entry)
 		end
 	end
+
+	describe Data::Collection do
+		describe '#order!' do
+			it 'should sort by string' do
+
+
+			end
+			it 'should sort by date' do
+
+			end
+			it 'should sort by two parameters' do
+
+			end
+			it 'should sort in desc order' do
+
+			end
+		end
+
+		describe '#dump' do
+
+		end
+	end
 end

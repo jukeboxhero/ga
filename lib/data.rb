@@ -14,6 +14,7 @@ class Data
 				if data_sample.split(del).size > 1
 					file_data 	= Data.parse(item,del)
 					file_data.each do |entry_data|
+						p entry_data
 						result << api_class.new(entry_data)
 					end
 					break
@@ -28,7 +29,7 @@ class Data
 		class_name 	= basename.downcase.split.each_with_index.map { |v| v.capitalize }.join
 
 		# need to namespace classes so a user can't add a file like string.rb
-		if GA.const_defined?(class_name)
+		if GA.constants.include?(class_name.to_sym)
 			return GA.const_get(class_name)
 		end
 		Entry
