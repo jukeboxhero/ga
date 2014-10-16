@@ -1,9 +1,19 @@
-require 'csv'
-require 'date'
+require './config'
 
-Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file }
+entries 	= Data.parse_all
 
-DELINEATORS = [',', '$', '|']
+puts "Output 1: "
+entries.order!(:campus, :last_name)
+entries.dump
+puts "\n"
 
-data 	= Data.parse_all
-entries = Entry.create_all_from_data(data)
+
+puts "Output 2: "
+entries.order!(:dob)
+entries.dump
+puts "\n"
+
+puts "Output 3: "
+entries.order!(:last_name, nil, :order => 'DESC')
+entries.dump
+puts "\n"
