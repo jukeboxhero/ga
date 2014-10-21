@@ -14,7 +14,6 @@ class Data
 				if data_sample.split(del).size > 1
 					file_data 	= Data.parse(item,del)
 					file_data.each do |entry_data|
-						p entry_data
 						result << api_class.new(entry_data)
 					end
 					break
@@ -43,7 +42,7 @@ class Data
 
 		attr_accessor :format
 
-		def initialize
+		def initialize(arr=[])
 			@format = DEFAULT_ENTRY_FORMAT
 			super
 		end

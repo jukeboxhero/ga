@@ -10,4 +10,10 @@ RSpec.configure do |config|
 		Data.class_variable_set :@@data_path, 'spec/factories/*.txt'
 		stub_const('DELIMETERS', [',', '$', '|'])
 	end
+	config.expect_with :rspec do |c|
+   		c.syntax = [:should, :expect]
+  	end
+  	config.mock_with :rspec do |c|
+   		c.syntax = [:should, :expect]
+  	end
 end
